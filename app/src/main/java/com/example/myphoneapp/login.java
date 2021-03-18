@@ -1,5 +1,6 @@
 package com.example.myphoneapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -7,21 +8,31 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
+import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class login extends AppCompatActivity {
+public class login extends AppCompatActivity implements View.OnClickListener {
+    private TextView banner,forgotpassword,register1;
+    private ImageView imageView1;
+    private Button signin;
+    private EditText email1,password1;
 
-    Button callSignUp,login_btn;
-    ImageView image;
-    TextView logoText, sloganText;
-    TextInputLayout username,password;
+    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,36 +43,86 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Hooks
-        callSignUp = findViewById(R.id.signup_screen);
-        image = findViewById(R.id.logo_image);
-        logoText = findViewById(R.id.logo_name);
-        sloganText = findViewById(R.id.slogan_name);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        login_btn = findViewById(R.id.login_button);
+        signin = findViewById(R.id.signin);
+        signin.setOnClickListener(this);
+        imageView1 = findViewById(R.id.imageView);
+        banner = findViewById(R.id.banner);
+
+        email1 = findViewById(R.id.email);
+        password1 = findViewById(R.id.password);
+        forgotpassword = findViewById(R.id.forpass);
+        forgotpassword.setOnClickListener(this);
+        register1=findViewById(R.id.register);
+        register1.setOnClickListener(this);
+        mAuth=FirebaseAuth.getInstance();
 
 
-        callSignUp.setOnClickListener(new View.OnClickListener() {
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.register) {
+            startActivity(new Intent(this,sign_up.class));
+        } else if (id == R.id.signin) {
+            userLogin();
+        }
+        else if (id == R.id.forpass) {
+            startActivity(new Intent(this,resetpassword.class));
+        }
+
+    }
+
+    private void userLogin() {
+        String email=email1.getText().toString().trim();
+        String password=password1.getText().toString().trim();
+        if(email.isEmpty())
+        {
+            email1.setError("Email is required");
+            email1.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            email1.setError("Please provide valid email ");
+            email1.requestFocus();
+            return;
+        }
+        if(password.isEmpty())
+        {
+            password1.setError("UserId is required");
+            password1.requestFocus();
+            return;
+        }
+        if(password.length()<5){
+            password1.setError("Min Password length should be 5");
+            password1.requestFocus();
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(login.this,sign_up.class);
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+                    if(user.isEmailVerified()){
+                        startActivity(new Intent(login.this,userprofile.class));
 
-                Pair[] pairs = new Pair[7];
+                    }
+                    else{
+                        user.sendEmailVerification();
+                        Toast.makeText(login.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
 
-                pairs[0] = new Pair<View,String>(image,"logo_image");
-                pairs[1] = new Pair<View,String>(logoText,"logo_text");
-                pairs[2]=new Pair<View,String>(sloganText,"logo_desc");
-                pairs[3]=new Pair<View,String>(username,"username_tran");
-                pairs[4]=new Pair<View,String>(password,"password_tran");
-                pairs[5]=new Pair<View,String>(login_btn,"button_tran");
-                pairs[6]=new Pair<View,String>(callSignUp,"login_signup_tran");
+                    }
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(login.this,pairs);
-                    startActivity(intent,options.toBundle());
+
                 }
-
+                else{
+                    Toast.makeText(login.this, "Failed to login! Try again", Toast.LENGTH_LONG).show();
+                }
             }
         });
+
     }
 }

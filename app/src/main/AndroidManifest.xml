@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPhoneapp">
+        <activity android:name=".resetpassword"></activity>
+        <activity android:name=".userprofile" />
         <activity android:name=".sign_up" />
-
         <activity android:name=".login" />
         <activity android:name=".dashboard" />
         <activity android:name=".MainActivity">
@@ -20,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/rounded_button" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

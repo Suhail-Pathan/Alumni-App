@@ -17,7 +17,6 @@
         android:layout_marginTop="24dp"
         app:srcCompat="@drawable/alumni1" />
 
-
     <TextView
         android:id="@+id/banner"
         android:layout_width="352dp"
@@ -29,9 +28,9 @@
 
         android:layout_marginEnd="32dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/bungee"
-        android:text="Sign In"
+        android:text="CreateAccount"
         android:textAlignment="center"
 
         android:textColor="@android:color/holo_red_light"
@@ -39,78 +38,77 @@
         android:textSize="35sp" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/username"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/banner"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:hint="Email Address"
-        android:inputType="textEmailAddress"
+        android:layout_marginTop="31dp"
+        android:textColor="@color/black"
+        android:hint="User Name"
+        android:inputType="text"
+        android:singleLine="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:textColorHint="@color/black"
+
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/PRN_Number"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:hint="PRN Number"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="24sp"
-        app:boxStrokeColor="@color/orange"
-        app:boxStrokeWidthFocused="2dp" />
 
+        android:inputType="number"
+        android:textSize="24sp" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PRN_Number"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/orange"
+        app:boxStrokeWidthFocused="2dp"
+        android:layout_marginTop="22dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/password"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/email"
-
-        android:layout_centerInParent="true"
-        android:layout_marginTop="35dp"
-        android:hint="Password"
-        android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/signin"
+        android:id="@+id/register"
         android:layout_width="333dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="37dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="29dp"
         android:background="@drawable/rounded_button"
-        android:text="Sign In"
+        android:text="Register"
         android:textColor="#fff"
         android:textSize="24sp"
         android:transitionName="button_tran" />
-
-    <TextView
-        android:id="@+id/forpass"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/signin"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="34dp"
-        android:textSize="24dp"
-       android:textAlignment="center"
-        android:layout_toStartOf="@+id/register"
-        android:textColor="@color/black"
-        android:text="Forgot Password" />
-
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="170dp"
-        android:layout_height="58dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/signin"
-        android:layout_marginEnd="22dp"
-        android:layout_marginTop="34dp"
-        android:text="Register here"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24dp" />
 
 
 </RelativeLayout>

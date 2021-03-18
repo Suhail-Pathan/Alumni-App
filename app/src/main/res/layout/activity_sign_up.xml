@@ -17,13 +17,15 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/Logo_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/alumni"
                 android:layout_gravity="center"
-                android:transitionName="logo_image"/>
+                android:src="@drawable/alumni1"
+                android:transitionName="logo_image" />
 
             <TextView
+                android:id="@+id/Logo_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -33,14 +35,16 @@
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="35sp"
                 android:transitionName="logo_text" />
+
             <TextView
+                android:id="@+id/sLogan_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign Up to get started!"
-                android:transitionName="logo_desc"
                 android:layout_gravity="center"
+                android:text="Sign Up to get started!"
+                android:textColor="#000"
                 android:textSize="18sp"
-                android:textColor="#000"/>
+                android:transitionName="logo_desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,7 +54,7 @@
                 android:layout_marginBottom="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/name"
+                    android:id="@+id/user_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="User-Id"
@@ -156,22 +160,32 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/signIn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Let's Go"
+                android:layout_height="39dp"
                 android:background="@drawable/rounded_button"
+                android:text="Sign in"
                 android:textColor="#fff"
-                android:transitionName="button_tran"/>
+                android:transitionName="button_tran" />
 
             <Button
                 android:id="@+id/login_screen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Already Have an account? LogIn"
+                android:layout_height="43dp"
                 android:background="#00000000"
-                android:textColor="#fff"
-                android:transitionName="login_signup_tran"/>
+                android:text="Already Have an account? LogIn"
+                android:textColor="@color/black"
+                android:transitionName="login_signup_tran" />
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:visibility="gone"
+                tools:ignore="MissingConstraints"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+
