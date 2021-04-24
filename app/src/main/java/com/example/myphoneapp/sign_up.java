@@ -100,8 +100,8 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
             return;
         }
          if(prnNumber.length()<15){
-             password1.setError("Min length should be 15");
-             password1.requestFocus();
+             PRN_Number1.setError("Min. length should be 15");
+             PRN_Number1.requestFocus();
              return;
          }
         if(email.isEmpty())

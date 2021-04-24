@@ -44,10 +44,10 @@ public class userprofile extends AppCompatActivity {
             }
         });
 
-      user =FirebaseAuth.getInstance().getCurrentUser();
-      reference= FirebaseDatabase.getInstance().getReference("Users");
-      userID=user.getUid();
-      final TextView email1=findViewById(R.id.email_view);
+        user =FirebaseAuth.getInstance().getCurrentUser();
+        reference= FirebaseDatabase.getInstance().getReference("Users");
+        userID=user.getUid();
+        final TextView email1=findViewById(R.id.email_view);
         final TextView username1=findViewById(R.id.username_view);
         final TextView prn1=findViewById(R.id.prnnumber_view);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {

@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myphoneapp">
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPhoneapp">
-        <activity android:name=".resetpassword"></activity>
+        <activity android:name=".VideoPlayer"></activity>
+        <activity android:name=".home_page" />
+        <activity android:name=".homepage" />
+        <activity android:name=".fullimageView" />
+        <activity android:name=".gallery" />
+        <activity android:name=".gallery_details" />
+        <activity android:name=".gallery_main" />
+        <activity android:name=".menu_feedback" />
+        <activity android:name=".menu_profile" />
+        <activity android:name=".nav_main" />
+        <activity android:name=".resetpassword" />
         <activity android:name=".userprofile" />
         <activity android:name=".sign_up" />
         <activity android:name=".login" />

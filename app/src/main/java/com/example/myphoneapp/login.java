@@ -107,7 +107,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 if(task.isSuccessful()){
                     FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
-                        startActivity(new Intent(login.this,userprofile.class));
+                        startActivity(new Intent(login.this,nav_main.class));
 
                     }
                     else{
