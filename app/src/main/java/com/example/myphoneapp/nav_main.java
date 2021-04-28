@@ -66,7 +66,7 @@ public class nav_main extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_photos :
-                        Intent intent= new Intent(nav_main.this,gallery.class);
+                        Intent intent= new Intent(nav_main.this,Extended_Gallery.class);
                         startActivity(intent);
                         //Toast.makeText(getApplicationContext(),"Photos panel is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -86,9 +86,12 @@ public class nav_main extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_sociallinks:
+                        Intent intenthS= new Intent(nav_main.this,  FirebaseRecycle.class);
+                        startActivity(intenthS);
                         Toast.makeText(getApplicationContext(),"Social-link is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+
                     case R.id.menu_feed :
                         Intent intent1= new Intent(nav_main.this,menu_feedback.class);
                         startActivity(intent1);

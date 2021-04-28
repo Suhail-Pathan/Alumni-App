@@ -14,7 +14,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class  galleryAdapter extends RecyclerView.Adapter<galleryAdapter.GalleryViewAdapter> implements View.OnClickListener{
+public class  galleryAdapter extends RecyclerView.Adapter<galleryAdapter.GalleryViewAdapter>{
 
    private Context context;
     public List<Integer> galleryImages;
@@ -36,15 +36,7 @@ public class  galleryAdapter extends RecyclerView.Adapter<galleryAdapter.Gallery
 
 
         Glide.with(context).load(galleryImages.get(position)).into(holder.imageIcon);
-        holder.imageIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context,fullimageView.class);
-                intent.putExtra("image",galleryImages.get(position));
-                context.startActivity(intent);
 
-            }
-        });
     }
 
     @Override
@@ -52,10 +44,7 @@ public class  galleryAdapter extends RecyclerView.Adapter<galleryAdapter.Gallery
         return galleryImages.size();
     }
 
-    @Override
-    public void onClick(View v) {
 
-    }
 
     public class GalleryViewAdapter extends RecyclerView.ViewHolder {
    ImageView imageIcon;

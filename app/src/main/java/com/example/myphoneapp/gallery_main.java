@@ -35,10 +35,10 @@ public class gallery_main extends AppCompatActivity {
         title.add("B");
         title.add("C");
         title.add("D");
-        images.add(R.drawable.feb11);
-        images.add(R.drawable.feb12);
-        images.add(R.drawable.feb13);
-        images.add(R.drawable.feb14);
+        images.add(R.drawable.feb1);
+        images.add(R.drawable.feb5);
+        images.add(R.drawable.feb3);
+        images.add(R.drawable.feb4);
 
 
 

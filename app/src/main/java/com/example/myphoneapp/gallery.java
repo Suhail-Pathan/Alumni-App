@@ -30,14 +30,17 @@ galleryAdapter adapter;
         images = new ArrayList<>();
 
         images.add(R.drawable.feb1);
-        images.add(R.drawable.feb2);
+        images.add(R.drawable.feb7);
         images.add(R.drawable.feb3);
         images.add(R.drawable.feb4);
+        images.add(R.drawable.feb5);
+        images.add(R.drawable.feb6);
+
 
 
 
         adapter = new galleryAdapter(this,images);
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(this,1,GridLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(this,1,GridLayoutManager.HORIZONTAL,false);
         febRecycler.setLayoutManager(gridLayoutManager);
         febRecycler.setAdapter(adapter);
     }
@@ -47,8 +50,10 @@ galleryAdapter adapter;
 
         images.add(R.drawable.jan1);
         images.add(R.drawable.jan2);
-        images.add(R.drawable.jan3);
+        images.add(R.drawable.jan8);
         images.add(R.drawable.jan4);
+        images.add(R.drawable.jan5);
+        images.add(R.drawable.jan6);
 
         adapter = new galleryAdapter(this,images);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,1,GridLayoutManager.HORIZONTAL,false);

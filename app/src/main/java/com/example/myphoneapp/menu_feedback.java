@@ -16,7 +16,7 @@ public class menu_feedback extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_feedback);
-        EditText edit1=(EditText)findViewById(R.id.edit1);
+
         EditText edit2=(EditText)findViewById(R.id.edit2);
         Button btn=(Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +26,7 @@ public class menu_feedback extends AppCompatActivity {
                 i.setType("message/html");
                 i.putExtra(android.content.Intent.EXTRA_EMAIL,new String[] { "suhailkhan144@gmail.com" });
                 i.putExtra(Intent.EXTRA_SUBJECT,"Feedback Form App");
-                i.putExtra(Intent.EXTRA_TEXT, "Nmae:"+edit1.getText()+"\n Message:"+edit2.getText());
+                i.putExtra(Intent.EXTRA_TEXT, "Nmae:"+"\n Message:"+edit2.getText());
                 try {
                     startActivity(Intent.createChooser(i,"Please select Email"));
                 }

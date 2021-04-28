@@ -27,13 +27,13 @@
 
             <ImageView
                 android:id="@+id/grid_image1"
-                android:layout_width="133dp"
-                android:layout_height="164dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="4dp"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/alumni1" />

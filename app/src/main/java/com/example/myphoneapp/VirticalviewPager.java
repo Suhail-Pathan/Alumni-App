@@ -17,6 +17,7 @@ public class VirticalviewPager extends ViewPager {
 
     public VirticalviewPager(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
     private void init(){
         ////
